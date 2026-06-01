@@ -25,7 +25,7 @@ def save_tasks(tasks):
         json.dump(tasks, f, indent=4)
 
 
-@app.command()
+@app.command(help="")
 def add(status: bool = False):
     tasks = load_tasks()
     name = input("Write the name of your task: ")
@@ -38,7 +38,7 @@ def add(status: bool = False):
     print(f'The task "{task.name}" has been added.')
 
 
-@app.command(name="list")
+@app.command(name="list", help="Lists all of the tasks.")
 def show():
     tasks = load_tasks()
 
@@ -46,7 +46,7 @@ def show():
         print(f"{index + 1}: {t['name']}, status: {t['status']}")
 
 
-@app.command()
+@app.command(help="Removes a task from the todo-list.")
 def remove():
 
     tasks = load_tasks()
@@ -60,7 +60,7 @@ def remove():
     print(f"{choice} was removed.")
 
 
-@app.command()
+@app.command(help="Changes the task's status to 'finished'.")
 def finish():
     tasks = load_tasks()
     choice = questionary.select(
