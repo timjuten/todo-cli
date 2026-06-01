@@ -14,6 +14,7 @@ FILE = "task.json"
 
 def load_tasks():
     if not Path(FILE).exists():
+        print("The list is empty.")
         return []
 
     with open(FILE, "r") as f:
@@ -29,9 +30,9 @@ def save_tasks(tasks):
 def add(status: bool = False):
     tasks = load_tasks()
     name = input("Write the name of your task: ")
-    task = Task(name, status)
+    task = Task(name, len(tasks), status)
 
-    tasks.append({"name": task.name, "status": task.status})
+    tasks.append({"name": task.name, "index": task.index, "status": task.status})
 
     save_tasks(tasks)
 
@@ -43,7 +44,7 @@ def show():
     tasks = load_tasks()
 
     for index, t in enumerate(tasks):
-        print(f"{index + 1}: {t['name']}, status: {t['status']}")
+        print(f"{t['index'] + 1}: {t['name']}, status: {t['status']}")
 
 
 @app.command(help="Removes a task from the todo-list.")
