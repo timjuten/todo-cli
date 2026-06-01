@@ -26,7 +26,7 @@ def save_tasks(tasks):
         json.dump(tasks, f, indent=4)
 
 
-@app.command(help="")
+@app.command(help="Adds tasks to the list.")
 def add(status: bool = False):
     tasks = load_tasks()
     name = input("Write the name of your task: ")
