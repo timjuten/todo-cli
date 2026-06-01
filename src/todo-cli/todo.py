@@ -3,8 +3,8 @@
 import typer
 
 
-def main(name: str):
-    print(f"hello {name}")
+def main(age: str):
+    print(f"hello {age}")
 
 
 if __name__ == "__main__":
