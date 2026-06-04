@@ -1,0 +1,6 @@
+#add_button {
+    color: rgb(123, 27, 26);
+    background: plum;
+    /*border-radius: 10;
+    align: center middle;*/
+}
